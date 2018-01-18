@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="CityWeatherItemCell" id="iN0-l3-epB" customClass="CityWeatherItemCell" customModule="WeatherApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeZ-rt-npp">
+                    <rect key="frame" x="16" y="14" width="343" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="H1A-fK-HU3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cun-I4-TsL">
+                    <rect key="frame" x="16" y="49" width="131" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="db8-ad-22a">
+                    <rect key="frame" x="54" y="90" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="90" id="omt-3c-iCI"/>
+                        <constraint firstAttribute="height" constant="90" id="zEy-Ub-EJy"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq8-l4-syZ">
+                    <rect key="frame" x="201" y="56" width="142" height="101"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Cq8-l4-syZ" firstAttribute="leading" secondItem="Cun-I4-TsL" secondAttribute="trailing" constant="54" id="3kO-NB-UOv"/>
+                <constraint firstItem="Cq8-l4-syZ" firstAttribute="top" secondItem="PeZ-rt-npp" secondAttribute="bottom" constant="22" id="4pe-ui-HFR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Cq8-l4-syZ" secondAttribute="trailing" constant="32" id="61F-Um-16D"/>
+                <constraint firstItem="PeZ-rt-npp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="6CX-Br-Ooh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="db8-ad-22a" secondAttribute="bottom" constant="20" id="H0K-QQ-Sl5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PeZ-rt-npp" secondAttribute="trailing" constant="16" id="KhL-ST-GCg"/>
+                <constraint firstItem="Cq8-l4-syZ" firstAttribute="leading" secondItem="db8-ad-22a" secondAttribute="trailing" constant="57" id="L1u-sa-0s2"/>
+                <constraint firstItem="Cun-I4-TsL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="QQx-Ri-KZo"/>
+                <constraint firstItem="db8-ad-22a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="54" id="SBa-By-Vxj"/>
+                <constraint firstItem="Cun-I4-TsL" firstAttribute="top" secondItem="PeZ-rt-npp" secondAttribute="bottom" constant="15" id="XSy-Aa-MsE"/>
+                <constraint firstItem="PeZ-rt-npp" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="csD-0Q-U5E"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cq8-l4-syZ" secondAttribute="bottom" constant="43" id="ohA-ef-xxz"/>
+                <constraint firstItem="db8-ad-22a" firstAttribute="top" secondItem="Cun-I4-TsL" secondAttribute="bottom" constant="17" id="pBs-rN-6VP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dateLabel" destination="PeZ-rt-npp" id="XyY-VH-LVa"/>
+                <outlet property="descriptionLabel" destination="Cun-I4-TsL" id="SLL-Xm-RUY"/>
+                <outlet property="iconView" destination="db8-ad-22a" id="ABF-mX-kex"/>
+                <outlet property="tempLabel" destination="Cq8-l4-syZ" id="2ID-jt-aRY"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </view>
+    </objects>
+</document>

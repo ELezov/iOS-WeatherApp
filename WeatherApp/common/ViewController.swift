@@ -10,6 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    lazy var errorScreenView: ErrorScreenView? = {
+        let view: ErrorScreenView = UIView.fromNib()
+        view.configure(
+            title: "Упс! Что-то пошло не так",
+            message: "Пожалуйста, попробуйте еще раз.",
+            image: #imageLiteral(resourceName: "imgSmthWrong"))
+        return view
+    }()
+    
+    lazy var zeroScreenView: ErrorScreenView? = {
+        let view: ErrorScreenView = UIView.fromNib()
+        view.configure(
+            title: "Ничего не найдено",
+            message: "Пока мы умеем искать только\nпо названию заведения",
+            image: #imageLiteral(resourceName: "imgNotFound"))
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

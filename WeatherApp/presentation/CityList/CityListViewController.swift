@@ -24,7 +24,6 @@ class CityListViewController: ViewController {
         initTableView()
         initSearchBar()
         presentationModel = CityListPresentationModel(presenter: self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,9 +47,9 @@ class CityListViewController: ViewController {
     func initSearchBar(){
         searchBar.delegate = self
     }
-
-    func reloadData(cities: [City]){
-        self.viewModel.cityList = cities
+    
+    override func reloadData() {
+        super.reloadData()
         tableView.reloadData()
     }
 

@@ -22,7 +22,6 @@ class CityWeatherItemCell : TableCell {
     override func configure(with model: CellViewModel) {
         guard let viewModel = model as? CityWeatherCellViewModel else {return}
         self.reset()
-        
         self.dateLabel.text = viewModel.dateString
         self.descriptionLabel.text = viewModel.weatherDescription
         if let icon = viewModel.icon {

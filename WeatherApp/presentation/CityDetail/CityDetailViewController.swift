@@ -31,6 +31,7 @@ class CityDetailViewController: ViewController {
     }
     
     override func reloadData() {
+        super.reloadData()
         tableView.reloadData()
     }
 }

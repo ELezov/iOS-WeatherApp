@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  PresentationModel экрана с ближайшими организациями.
@@ -28,14 +29,41 @@ class CityListPresentationModel: PresentationModel {
     }
     
     override func reloadData() {
-        cityService?.getCityList(query: queryString){ (cities) -> Void in
-            if let cityList = cities {
-                for item in cityList {
-                    print(item.city)
-                }
-                guard let presenter = self.presenter as? CityListViewController else {return}
-                presenter.reloadData(cities: cityList)
+        cityService?.getCityList(query: queryString){ [weak self] (cities, error) -> Void in
+            guard let strongSelf = self else { return }
+            guard let presenter = strongSelf.presenter as? CityListViewController else {return}
+            if error != nil {
+                strongSelf.showError()
             }
+            
+            if let cityList = cities {
+                strongSelf.hideError()
+                presenter.viewModel.cityList = cityList
+                presenter.reloadData()
+            } else {
+                presenter.reloadData()
+                strongSelf.showError()
+            }
+        }
+    }
+    
+    func showError(){
+        guard let presenter = self.presenter as? CityListViewController else {return}
+        let view: ErrorScreenView = UIView.fromNib()
+        view.configure(
+                title: "Упс! Что-то пошло не так",
+                message: "Пожалуйста, попробуйте еще раз.",
+                image: #imageLiteral(resourceName: "imgSmthWrong"))
+        if let tableView = presenter.tableView {
+            tableView.backgroundView = view
+            view.frame = tableView.frame
+        }
+    }
+    
+    func hideError() {
+        guard let presenter = self.presenter as? CityListViewController else {return}
+        if let tableView = presenter.tableView {
+            tableView.backgroundView = nil
         }
     }
     

@@ -28,6 +28,12 @@ extension CityListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.viewModel.numberOfCities() == 0) {
+            let view = self.errorScreenView
+            self.tableView.backgroundView = view
+            view?.frame = self.tableView.frame
+            
+        }
         return self.viewModel.numberOfCities()
     }
     

@@ -12,18 +12,18 @@ import ObjectMapper
 
 class CityService {
     
-    func getCityList(query: String, _ completion:@escaping ([City]?) -> Void){
+    func getCityList(query: String, _ completion:@escaping ([City]?,Error?) -> Void){
         _ = Network.shared.request(endpoint: CityEndpoint.getCities(query: query)){
             response in
             switch(response.result){
             case .success(let _):
                 if let result = Mapper<CityResult>().map(JSONObject: response.result.value) {
                      let cities = result.results;
-                     completion(cities)
-                } else { completion(nil)}
+                     completion(cities,nil)
+                } else { completion(nil,nil)}
             case .failure(let error):
                 print(error.localizedDescription)
-                completion(nil)
+                completion(nil,error)
             }
         }
     }

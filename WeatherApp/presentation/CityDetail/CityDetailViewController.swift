@@ -14,30 +14,15 @@ class CityDetailViewController: ViewController {
     static let id = "CityDetailViewController"
     
     var viewModel = CityDetailViewModel()
-    var presentionModel: CityDetailPresentationModel?
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.red
-        
-        return refreshControl
-    }()
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
-        presentionModel = CityDetailPresentationModel(presenter: self)
+        presentationModel = CityDetailPresentationModel(presenter: self)
     }
-    
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        
-        presentionModel?.reloadData()
-    }
+
     
     func initTableView(){
         let nib = UINib(nibName: CityWeatherItemCell.id, bundle: nil)

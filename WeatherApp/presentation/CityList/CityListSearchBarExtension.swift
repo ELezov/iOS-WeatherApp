@@ -14,8 +14,9 @@ extension CityListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count > 3 {
-            self.presentationModel?.queryString = searchText
-            self.presentationModel?.reloadData()
+            guard let presentationModel = self.presentationModel as? CityListPresentationModel else {return}
+            presentationModel.queryString = searchText
+            presentationModel.reloadData()
         }
     }
     
@@ -24,6 +25,7 @@ extension CityListViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.presentationModel?.reloadData()
+        guard let presentationModel = self.presentationModel as? CityListPresentationModel else {return}
+        presentationModel.reloadData()
     }
 }

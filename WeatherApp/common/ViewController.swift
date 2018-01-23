@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var presentationModel: PresentationModel?
+    
     lazy var errorScreenView: ErrorScreenView? = {
         let view: ErrorScreenView = UIView.fromNib()
         view.configure(
@@ -23,9 +25,19 @@ class ViewController: UIViewController {
         let view: ErrorScreenView = UIView.fromNib()
         view.configure(
             title: "Ничего не найдено",
-            message: "Пока мы умеем искать только\nпо названию заведения",
+            message: "Информация по данному объекту не найдена",
             image: #imageLiteral(resourceName: "imgNotFound"))
         return view
+    }()
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
     }()
     
     override func viewDidLoad() {
@@ -40,6 +52,11 @@ class ViewController: UIViewController {
 
     func reloadData(){
         
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // function for override
+        presentationModel?.reloadData()
     }
 
 }

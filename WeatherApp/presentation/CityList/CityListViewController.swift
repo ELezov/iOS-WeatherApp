@@ -17,7 +17,6 @@ class CityListViewController: ViewController {
     lazy var searchBar:UISearchBar = UISearchBar()
     
     var viewModel = CityListViewModel()
-    var presentationModel: CityListPresentationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +37,7 @@ class CityListViewController: ViewController {
         let nib = UINib(nibName: CityListItemCell.id, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: CityListItemCell.id)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
+        tableView.refreshControl = self.refreshControl;
         tableView.backgroundColor = UIColor.FlatColor.Gray.WhiteSmoke
         tableView.delegate = self
         tableView.dataSource = self
@@ -67,6 +66,7 @@ class CityListViewController: ViewController {
     override func reloadData() {
         super.reloadData()
         tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

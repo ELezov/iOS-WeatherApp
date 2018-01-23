@@ -15,7 +15,7 @@ extension CityDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func getHeaderForSection(title: String) -> UIView {
         let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width,height: 30)
         let header = UIView(frame:frame)
-        header.backgroundColor = UIColor.lightGray
+        header.backgroundColor = UIColor.FlatColor.Gray.Iron
         let label = UILabel(frame: frame)
         label.textAlignment = NSTextAlignment.center
         label.text = title

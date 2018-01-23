@@ -43,6 +43,7 @@ class CityDetailViewController: ViewController {
         let nib = UINib(nibName: CityWeatherItemCell.id, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: CityWeatherItemCell.id)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.backgroundColor = UIColor.FlatColor.Gray.WhiteSmoke
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = refreshControl

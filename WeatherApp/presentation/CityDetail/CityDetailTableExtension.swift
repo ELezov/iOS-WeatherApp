@@ -10,14 +10,26 @@ import Foundation
 import UIKit
 
 
-extension CityDetailViewController: UITableViewDataSource {
+extension CityDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func getHeaderForSection(title: String) -> UIView {
+        let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width,height: 30)
+        let header = UIView(frame:frame)
+        header.backgroundColor = UIColor.lightGray
+        let label = UILabel(frame: frame)
+        label.textAlignment = NSTextAlignment.center
+        label.text = title
+        label.textColor = UIColor.black
+        header.addSubview(label)
+        return header
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.numberOfCities()
+        return self.viewModel.numberOfCities()/self.viewModel.numberOfSections()
     }
     
     
@@ -26,10 +38,19 @@ extension CityDetailViewController: UITableViewDataSource {
             fatalError("PlaceTableViewXibCell doesn't exist")
         }
         cell.selectionStyle = .none
-        if let viewModel = self.viewModel.getWeather(number: indexPath.row) {
+        let index = indexPath.section*8 + indexPath.row
+        print(indexPath.section, indexPath.row, index)
+        if let viewModel = self.viewModel.getWeather(number: index) {
             cell.configure(with: viewModel)
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let day = section + 1;
+        let headerTitle =  "\(day) day"
+        return getHeaderForSection(title: headerTitle)
+    }
+    
     
 }

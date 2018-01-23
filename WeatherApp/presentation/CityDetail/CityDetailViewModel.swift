@@ -20,6 +20,14 @@ class CityDetailViewModel: ListViewModel {
         }
     }
     
+    func numberOfSections() -> Int {
+        if let count = weathers?.count {
+            return count/8;
+        } else {
+            return 0;
+        }
+    }
+    
     func getWeather(number: Int) -> CityWeatherCellViewModel? {
         return weathers?[number]
     }

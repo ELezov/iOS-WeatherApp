@@ -18,7 +18,14 @@ class CityListItemCell: TableCell {
     
     override func configure(with model: CellViewModel) {
         guard let viewModel = model as? CityCellViewModel else {return}
-        self.cityNameLabel.text = viewModel.cityName
-        self.cityCountryLabel.text = viewModel.countryName
+        if viewModel.fullName != nil {
+            cityNameLabel.text = viewModel.fullName
+        } else if let nameCity = viewModel.cityName {
+            cityNameLabel.text = nameCity
+        }
+        
+        if let countyName = viewModel.countryName {
+            self.cityCountryLabel.text = countyName
+        }
     }
 }

@@ -43,7 +43,7 @@ extension CityListViewController: UITableViewDataSource {
         }
         cell.selectionStyle = .none
         if let city = self.viewModel.getCity(number: indexPath.row) {
-            cell.configure(with: CityCellViewModel(cityName: city.city, countryName: city.country))
+            cell.configure(with: CityCellViewModel(cityName: city.city, countryName: city.country, fullName: city.nameString))
         }
         return cell
     }

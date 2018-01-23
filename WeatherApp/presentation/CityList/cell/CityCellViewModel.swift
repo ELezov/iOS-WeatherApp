@@ -12,11 +12,13 @@ class CityCellViewModel : CellViewModel {
     
     var cityName: String?
     var countryName: String?
+    var fullName: String?
     
-    init(cityName: String?, countryName: String?) {
+    init(cityName: String?, countryName: String?,fullName: String?) {
         super.init()
         self.cityName = cityName
         self.countryName = countryName
+        self.fullName = fullName
     }
     
   

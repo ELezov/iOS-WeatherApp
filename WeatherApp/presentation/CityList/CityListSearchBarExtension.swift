@@ -18,4 +18,12 @@ extension CityListViewController: UISearchBarDelegate {
             self.presentationModel?.reloadData()
         }
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.presentationModel?.reloadData()
+    }
 }

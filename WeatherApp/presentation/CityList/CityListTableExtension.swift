@@ -11,10 +11,9 @@ import UIKit
 
 extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        searchBar.endEditing(true)
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.main, bundle: nil)
         guard let vc = mainStoryBoard.instantiateViewController(withIdentifier: CityDetailViewController.id) as? CityDetailViewController else {return}
-        //vc?.viewModel = viewModel.getDetailsNewModel(indexPath.row)
         vc.title = self.viewModel.getCity(number: indexPath.row)?.city
         self.navigationController?.pushViewController(vc, animated: true)
     }

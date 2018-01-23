@@ -33,31 +33,32 @@ class CityListPresentationModel: PresentationModel {
             guard let strongSelf = self else { return }
             guard let presenter = strongSelf.presenter as? CityListViewController else {return}
             if error != nil {
-                strongSelf.showError()
-            }
-            
-            if let cityList = cities {
-                strongSelf.hideError()
-                presenter.viewModel.cityList = cityList
-                presenter.reloadData()
+                strongSelf.showError(error: error)
             } else {
-                presenter.reloadData()
-                strongSelf.showError()
+                if let cityList = cities {
+                    strongSelf.hideError()
+                    presenter.viewModel.cityList = cityList
+                } else {
+                    strongSelf.showError(error: nil)
+                }
             }
+            presenter.reloadData()
         }
     }
     
     
-    override func showError(){
+    override func showError(error: Error?){
+        super.showError(error: error)
         guard let presenter = self.presenter as? CityListViewController else {return}
-        let view: ErrorScreenView = UIView.fromNib()
-        view.configure(
-                title: "Упс! Что-то пошло не так",
-                message: "Пожалуйста, попробуйте еще раз.",
-                image: #imageLiteral(resourceName: "imgSmthWrong"))
+        var errorView: UIView?
+        if error != nil {
+            errorView = presenter.errorScreenView
+        } else {
+            errorView = presenter.zeroScreenView
+        }
         if let tableView = presenter.tableView {
-            tableView.backgroundView = view
-            view.frame = tableView.frame
+            tableView.backgroundView = errorView
+            errorView?.frame = tableView.frame
         }
     }
     

@@ -21,7 +21,7 @@ class PresentationModel:NSObject {
         
     }
     
-    func showError() {
+    func showError(error: Error?) {
 
     }
     

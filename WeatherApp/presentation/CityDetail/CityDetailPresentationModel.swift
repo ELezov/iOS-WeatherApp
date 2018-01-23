@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CityDetailPresentationModel: PresentationModel {
     
@@ -24,34 +25,42 @@ class CityDetailPresentationModel: PresentationModel {
     override func reloadData() {
         guard let presenter = self.presenter as? CityDetailViewController else {return}
         guard let title = presenter.title else {return}
-        weatherService?.getWeather(cityName: title) { (weather) -> Void in
-            if let weather = weather {
-                self.hideError()
-                if let lists = weather.list {
-                    var weathersViewModel = [CityWeatherCellViewModel]()
-                    for list in lists{
-                        var weatherViewModel = CityWeatherCellViewModel(list: list)
-                        weathersViewModel.append(weatherViewModel)
-                    }
-                    presenter.viewModel.weathers = weathersViewModel
-                    presenter.reloadData()
-                }
+        weatherService?.getWeather(cityName: title) { (weather, error) -> Void in
+            if let error = error {
+                self.showError(error: error)
             } else {
-                self.showError()
-                presenter.reloadData()
+                if let weather = weather,
+                    let lists = weather.list,
+                      lists.count > 0 {
+                        self.hideError()
+                        var weathersViewModel = [CityWeatherCellViewModel]()
+                        for list in lists{
+                            let weatherViewModel = CityWeatherCellViewModel(list: list)
+                            weathersViewModel.append(weatherViewModel)
+                        }
+                        presenter.viewModel.weathers = weathersViewModel
+                } else {
+                    self.showError(error: nil)
+                }
             }
+            presenter.reloadData()
         }
     }
     
-    override func showError() {
-        super.showError()
+    override func showError(error: Error?) {
+        super.showError(error: error)
         guard let presenter = self.presenter as? CityDetailViewController else {return}
-        
-        if let tableView = presenter.tableView,
-            let errorView = presenter.errorScreenView {
-            tableView.backgroundView = errorView
-            errorView.frame = tableView.frame
+        var errorView: UIView?
+        if error != nil {
+            errorView = presenter.errorScreenView
+        } else {
+            errorView = presenter.zeroScreenView
         }
+        if let tableView = presenter.tableView {
+            tableView.backgroundView = errorView
+            errorView?.frame = tableView.frame
+        }
+       
     }
     
     

@@ -12,17 +12,17 @@ import ObjectMapper
 
 class WeatherService {
     
-    func getWeather(cityName: String, _ completion:@escaping (WeatherResult?) -> Void){
+    func getWeather(cityName: String, _ completion:@escaping (WeatherResult?, Error?) -> Void){
         _ = Network.shared.request(endpoint: WeatherEndpoint.getWeather(cityName: cityName)){
             response in
             switch(response.result){
-            case .success(let _):
+            case .success( _):
                 if let result = Mapper<WeatherResult>().map(JSONObject: response.result.value) {
-                    completion(result)
-                } else { completion(nil)}
+                    completion(result,nil)
+                } else { completion(nil,nil)}
             case .failure(let error):
                 print(error.localizedDescription)
-                completion(nil)
+                completion(nil, error)
             }
         }
     }

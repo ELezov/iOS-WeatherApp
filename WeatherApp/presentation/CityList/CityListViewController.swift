@@ -40,6 +40,7 @@ class CityListViewController: ViewController {
     func initTableView(){
         let nib = UINib(nibName: CityListItemCell.id, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: CityListItemCell.id)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.delegate = self
         tableView.dataSource = self
     }

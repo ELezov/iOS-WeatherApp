@@ -26,6 +26,7 @@ class CityDetailPresentationModel: PresentationModel {
         guard let title = presenter.title else {return}
         weatherService?.getWeather(cityName: title) { (weather) -> Void in
             if let weather = weather {
+                self.hideError()
                 if let lists = weather.list {
                     var weathersViewModel = [CityWeatherCellViewModel]()
                     for list in lists{
@@ -35,7 +36,29 @@ class CityDetailPresentationModel: PresentationModel {
                     presenter.viewModel.weathers = weathersViewModel
                     presenter.reloadData()
                 }
+            } else {
+                self.showError()
+                presenter.reloadData()
             }
+        }
+    }
+    
+    override func showError() {
+        super.showError()
+        guard let presenter = self.presenter as? CityDetailViewController else {return}
+        
+        if let tableView = presenter.tableView,
+            let errorView = presenter.errorScreenView {
+            tableView.backgroundView = errorView
+            errorView.frame = tableView.frame
+        }
+    }
+    
+    
+    override func hideError() {
+        guard let presenter = self.presenter as? CityDetailViewController else {return}
+        if let tableView = presenter.tableView {
+            tableView.backgroundView = nil
         }
     }
     

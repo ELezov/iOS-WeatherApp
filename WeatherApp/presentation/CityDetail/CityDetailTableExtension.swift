@@ -39,7 +39,6 @@ extension CityDetailViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.selectionStyle = .none
         let index = indexPath.section*8 + indexPath.row
-        print(indexPath.section, indexPath.row, index)
         if let viewModel = self.viewModel.getWeather(number: index) {
             cell.configure(with: viewModel)
         }

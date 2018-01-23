@@ -47,7 +47,8 @@ class CityListPresentationModel: PresentationModel {
         }
     }
     
-    func showError(){
+    
+    override func showError(){
         guard let presenter = self.presenter as? CityListViewController else {return}
         let view: ErrorScreenView = UIView.fromNib()
         view.configure(
@@ -60,7 +61,7 @@ class CityListPresentationModel: PresentationModel {
         }
     }
     
-    func hideError() {
+    override func hideError() {
         guard let presenter = self.presenter as? CityListViewController else {return}
         if let tableView = presenter.tableView {
             tableView.backgroundView = nil

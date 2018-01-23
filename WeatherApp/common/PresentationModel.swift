@@ -20,4 +20,12 @@ class PresentationModel:NSObject {
     override init() {
         
     }
+    
+    func showError() {
+
+    }
+    
+    func hideError() {
+        
+    }
 }

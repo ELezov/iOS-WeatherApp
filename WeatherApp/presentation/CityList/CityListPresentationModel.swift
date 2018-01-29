@@ -19,6 +19,8 @@ class CityListPresentationModel: PresentationModel {
 
     var cityService: CityService?
     
+    var timer = Timer()
+    
     // MARK: - Инициализация
     
     init(presenter: ViewController?) {
@@ -29,6 +31,11 @@ class CityListPresentationModel: PresentationModel {
     }
     
     override func reloadData() {
+        self.timer.invalidate();
+        self.timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.getCities), userInfo: nil, repeats: false);
+    }
+    
+    @objc func getCities() {
         cityService?.getCityList(query: queryString){ [weak self] (cities, error) -> Void in
             guard let strongSelf = self else { return }
             guard let presenter = strongSelf.presenter as? CityListViewController else {return}

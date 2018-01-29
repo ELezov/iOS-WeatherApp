@@ -13,8 +13,9 @@ import UIKit
 extension CityListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count > 3 {
+        if searchText.count > 1 {
             guard let presentationModel = self.presentationModel as? CityListPresentationModel else {return}
+            
             presentationModel.queryString = searchText
             presentationModel.reloadData()
         }

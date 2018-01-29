@@ -51,5 +51,15 @@ extension CityDetailViewController: UITableViewDataSource, UITableViewDelegate {
         return getHeaderForSection(title: headerTitle)
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section%2 == 0 {
+            return 30
+        } else {
+            return 0
+        }
+    }
+    
+
+    
     
 }

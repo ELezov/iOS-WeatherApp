@@ -11,6 +11,9 @@ target 'WeatherApp' do
   pod 'AlamofireObjectMapper', '5.0.0'
   pod 'Kingfisher', '4.0'
   
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  
   target 'WeatherAppTests' do
     inherit! :search_paths
     # Pods for testing

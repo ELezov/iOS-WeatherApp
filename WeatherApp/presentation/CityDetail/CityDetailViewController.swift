@@ -15,9 +15,11 @@ class CityDetailViewController: ViewController {
     
     var viewModel = CityDetailViewModel()
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        self.initActivityIndicator()
         super.viewDidLoad()
         initTableView()
         presentationModel = CityDetailPresentationModel(presenter: self)
@@ -32,6 +34,12 @@ class CityDetailViewController: ViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.refreshControl = refreshControl
+    }
+    
+    func initActivityIndicator(){
+        activityIndicator.hidesWhenStopped = true;
+        activityIndicator.activityIndicatorViewStyle  = UIActivityIndicatorViewStyle.gray;
+        activityIndicator.center = view.center;
     }
     
     override func reloadData() {

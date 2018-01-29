@@ -53,17 +53,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-br-z4x">
+                                <rect key="frame" x="162.5" y="318.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="81u-Dv-0gb"/>
+                                    <constraint firstAttribute="width" constant="50" id="IHE-A1-vLg"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zh9-99-lC1" firstAttribute="bottom" secondItem="NKC-2U-UZU" secondAttribute="bottom" id="4bF-Jd-fgs"/>
+                            <constraint firstItem="4Zw-br-z4x" firstAttribute="centerY" secondItem="NKC-2U-UZU" secondAttribute="centerY" id="6RK-Fk-z0Y"/>
                             <constraint firstItem="zh9-99-lC1" firstAttribute="leading" secondItem="NKC-2U-UZU" secondAttribute="leading" id="BzC-ub-yCd"/>
+                            <constraint firstItem="4Zw-br-z4x" firstAttribute="centerX" secondItem="NKC-2U-UZU" secondAttribute="centerX" id="FoS-ra-34T"/>
                             <constraint firstItem="zh9-99-lC1" firstAttribute="top" secondItem="Efm-mJ-oBW" secondAttribute="top" id="MIe-Bl-elj"/>
                             <constraint firstItem="zh9-99-lC1" firstAttribute="trailing" secondItem="NKC-2U-UZU" secondAttribute="trailing" id="X84-F5-l0w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NKC-2U-UZU"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="4Zw-br-z4x" id="xSf-0d-hUk"/>
                         <outlet property="tableView" destination="zh9-99-lC1" id="oDv-nW-0ps"/>
                     </connections>
                 </viewController>

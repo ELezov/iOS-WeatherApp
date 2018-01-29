@@ -25,6 +25,7 @@ class CityDetailPresentationModel: PresentationModel {
     override func reloadData() {
         guard let presenter = self.presenter as? CityDetailViewController else {return}
         guard let title = presenter.title else {return}
+        presenter.activityIndicator.startAnimating()
         weatherService?.getWeather(cityName: title) { (weather, error) -> Void in
             if let error = error {
                 self.showError(error: error)
@@ -43,6 +44,7 @@ class CityDetailPresentationModel: PresentationModel {
                     self.showError(error: nil)
                 }
             }
+            presenter.activityIndicator.stopAnimating()
             presenter.reloadData()
         }
     }

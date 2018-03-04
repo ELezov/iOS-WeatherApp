@@ -11,8 +11,6 @@ import UIKit
 
 class CityListItemCell: TableCell {
     
-    static let id = "CityListItemCell"
-    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityCountryLabel: UILabel!
     

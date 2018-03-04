@@ -11,8 +11,6 @@ import UIKit
 
 class CityDetailViewController: ViewController {
     
-    static let id = "CityDetailViewController"
-    
     var viewModel = CityDetailViewModel()
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -27,8 +25,8 @@ class CityDetailViewController: ViewController {
 
     
     func initTableView(){
-        let nib = UINib(nibName: CityWeatherItemCell.id, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: CityWeatherItemCell.id)
+        let nib = UINib(nibName: String(describing: CityWeatherItemCell.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: String(describing: CityWeatherItemCell.self))
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundColor = UIColor.FlatColor.Gray.WhiteSmoke
         tableView.dataSource = self

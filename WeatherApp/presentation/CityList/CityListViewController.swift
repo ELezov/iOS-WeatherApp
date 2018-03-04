@@ -34,8 +34,8 @@ class CityListViewController: ViewController {
     }
     
     func initTableView(){
-        let nib = UINib(nibName: CityListItemCell.id, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: CityListItemCell.id)
+        let nib = UINib(nibName: String(describing: CityListItemCell.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: String(describing: CityListItemCell.self))
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.refreshControl = self.refreshControl;
         tableView.backgroundColor = UIColor.FlatColor.Gray.WhiteSmoke

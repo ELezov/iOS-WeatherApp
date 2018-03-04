@@ -12,8 +12,6 @@ import Kingfisher
 
 class CityWeatherItemCell : TableCell {
     
-    static let id = "CityWeatherItemCell"
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!

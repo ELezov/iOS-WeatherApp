@@ -34,7 +34,7 @@ extension CityDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CityWeatherItemCell.id, for: indexPath) as? CityWeatherItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CityWeatherItemCell.self), for: indexPath) as? CityWeatherItemCell else {
             fatalError("PlaceTableViewXibCell doesn't exist")
         }
         cell.selectionStyle = .none

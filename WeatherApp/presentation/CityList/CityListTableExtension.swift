@@ -13,7 +13,7 @@ extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.endEditing(true)
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: Constants.Storyboard.main, bundle: nil)
-        guard let vc = mainStoryBoard.instantiateViewController(withIdentifier: CityDetailViewController.id) as? CityDetailViewController else {return}
+        guard let vc = mainStoryBoard.instantiateViewController(withIdentifier: String(describing: CityDetailViewController.self)) as? CityDetailViewController else {return}
         vc.title = self.viewModel.getCity(number: indexPath.row)?.city
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -38,7 +38,7 @@ extension CityListViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CityListItemCell.id, for: indexPath) as? CityListItemCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CityListItemCell.self), for: indexPath) as? CityListItemCell else {
             fatalError("PlaceTableViewXibCell doesn't exist")
         }
         cell.selectionStyle = .none

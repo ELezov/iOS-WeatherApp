@@ -38,14 +38,20 @@ extension CityListViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CityListItemCell.self), for: indexPath) as? CityListItemCell else {
-            fatalError("PlaceTableViewXibCell doesn't exist")
-        }
-        cell.selectionStyle = .none
-        if let city = self.viewModel.getCity(number: indexPath.row) {
-            cell.configure(with: CityCellViewModel(cityName: city.city, countryName: city.country, fullName: city.nameString))
-        }
-        return cell
+        
+        let model: CellViewAnyModel
+        let city = self.viewModel.getCity(number: indexPath.row)
+        model = CityCellViewModel.init(cityName:city?.city , countryName: city?.country, fullName: city?.nameString)
+        return tableView.dequeueReusableCell(withModel: model, for: indexPath)
+        
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CityListItemCell.self), for: indexPath) as? CityListItemCell else {
+//            fatalError("PlaceTableViewXibCell doesn't exist")
+//        }
+//        cell.selectionStyle = .none
+//        if let city = self.viewModel.getCity(number: indexPath.row) {
+//            cell.configure(with: CityCellViewModel(cityName: city.city, countryName: city.country, fullName: city.nameString))
+//        }
+        //return cell
     }
     
 }

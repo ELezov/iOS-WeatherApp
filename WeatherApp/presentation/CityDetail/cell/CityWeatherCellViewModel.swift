@@ -8,7 +8,8 @@
 
 import Foundation
 
-class CityWeatherCellViewModel: CellViewModel {
+struct CityWeatherCellViewModel {
+    
     var dateString: String?
     var weatherDescription: String?
     var temp: Double?
@@ -16,8 +17,6 @@ class CityWeatherCellViewModel: CellViewModel {
     var icon: String?
     
     init(list: List) {
-        super.init()
-       
         if let dt = list.dtTxt {
             self.dateString = dt
         }
@@ -37,6 +36,20 @@ class CityWeatherCellViewModel: CellViewModel {
             
             self.weatherDescription = description
             self.icon = icon
+        }
+    }
+}
+
+extension CityWeatherCellViewModel: CellViewModel {
+    func setup(cell: CityWeatherItemCell) {
+        cell.dateLabel.text = dateString
+        cell.descriptionLabel.text = weatherDescription
+        if let icon = icon {
+            let stringUrlIcon = Constants.OpenWeather.Icon.url + icon + ".png"
+            cell.iconView.kf.setImage(with: URL(string: stringUrlIcon))
+        }
+        if let temp = temp {
+            cell.tempLabel.text = "\(temp) °C"
         }
     }
 }

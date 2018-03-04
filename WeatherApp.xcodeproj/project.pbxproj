@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E9D025206C2ECB0FEF8A52D /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B2B4D54A8C85B7C3EBEE11 /* Pods_WeatherAppTests.framework */; };
 		27B7F8AD04798BB84B03D5E9 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F34DC07136C7DD357BECC6 /* Pods_WeatherApp.framework */; };
+		33B0CCB8204C5A000022000F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B0CCB7204C5A000022000F /* UITableView.swift */; };
 		AF02B8D216DA2C874F2942C8 /* Pods_WeatherAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A36408F0CB69F510AE6655 /* Pods_WeatherAppUITests.framework */; };
 		C05B7A1C2011DABB000384C6 /* ErrorScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C05B7A1A2011DABA000384C6 /* ErrorScreenView.xib */; };
 		C05B7A1D2011DABB000384C6 /* ErrorScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B7A1B2011DABB000384C6 /* ErrorScreenView.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33B0CCB7204C5A000022000F /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		43F34DC07136C7DD357BECC6 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		524B8CCEAE1B0671F034F0F5 /* Pods-WeatherAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppTests/Pods-WeatherAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		624C60190A93D5C02A985C39 /* Pods-WeatherAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAppUITests/Pods-WeatherAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C05B7A1F2011DB6A000384C6 /* UIView+LoadFromNib.swift */,
 				C087CED82017770C00309F91 /* Color.swift */,
 				C087CEDA20177DE800309F91 /* UIViewController.swift */,
+				33B0CCB7204C5A000022000F /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				C06FFB672010D94400DD11B7 /* CityListItemCell.swift in Sources */,
 				C06FFB482010959400DD11B7 /* CityListViewController.swift in Sources */,
 				C05B7A202011DB6A000384C6 /* UIView+LoadFromNib.swift in Sources */,
+				33B0CCB8204C5A000022000F /* UITableView.swift in Sources */,
 				C06FFB622010D55800DD11B7 /* CityListTableExtension.swift in Sources */,
 				C06FFB782010F04100DD11B7 /* WeatherEndpoint.swift in Sources */,
 			);

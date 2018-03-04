@@ -10,26 +10,29 @@ import Foundation
 import UIKit
 import Kingfisher
 
-class CityWeatherItemCell : TableCell {
+class CityWeatherItemCell : UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     
-    override func configure(with model: CellViewModel) {
-        guard let viewModel = model as? CityWeatherCellViewModel else {return}
-        self.reset()
-        self.dateLabel.text = viewModel.dateString
-        self.descriptionLabel.text = viewModel.weatherDescription
-        if let icon = viewModel.icon {
-            let stringUrlIcon = Constants.OpenWeather.Icon.url + icon + ".png"
-            self.iconView.kf.setImage(with: URL(string: stringUrlIcon))
-        }
-        if let temp = viewModel.temp {
-            self.tempLabel.text = "\(temp) °C"
-        }
-        
+//    override func configure(with model: CellViewModel) {
+//        guard let viewModel = model as? CityWeatherCellViewModel else {return}
+//        self.reset()
+//        self.dateLabel.text = viewModel.dateString
+//        self.descriptionLabel.text = viewModel.weatherDescription
+//        if let icon = viewModel.icon {
+//            let stringUrlIcon = Constants.OpenWeather.Icon.url + icon + ".png"
+//            self.iconView.kf.setImage(with: URL(string: stringUrlIcon))
+//        }
+//        if let temp = viewModel.temp {
+//            self.tempLabel.text = "\(temp) °C"
+//        }
+//        
+//    }
+    override func awakeFromNib() {
+        self.selectionStyle = UITableViewCellSelectionStyle.none;
     }
     
     func reset(){

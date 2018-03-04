@@ -25,8 +25,9 @@ class CityDetailViewController: ViewController {
 
     
     func initTableView(){
-        let nib = UINib(nibName: String(describing: CityWeatherItemCell.self), bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: String(describing: CityWeatherItemCell.self))
+        //let nib = UINib(nibName: String(describing: CityWeatherItemCell.self), bundle: nil)
+        //tableView.register(nib, forCellReuseIdentifier: String(describing: CityWeatherItemCell.self))
+        tableView.register(nibModels: [CityWeatherCellViewModel.self])
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundColor = UIColor.FlatColor.Gray.WhiteSmoke
         tableView.dataSource = self

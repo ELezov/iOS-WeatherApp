@@ -11,8 +11,8 @@ import UIKit
 
 open class TableCell: UITableViewCell {
     
-    func configure(with model: CellViewModel)
-    {
-        
-    }
+//    func configure(with model: CellViewModel)
+//    {
+//        
+//    }
 }

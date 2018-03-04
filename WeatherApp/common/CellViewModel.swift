@@ -8,9 +8,10 @@
 
 import Foundation
 
-class  CellViewModel {
-    
-    init() {
-        
-    }
-}
+//class  CellViewModel {
+//    
+//    init() {
+//        
+//    }
+//}
+
